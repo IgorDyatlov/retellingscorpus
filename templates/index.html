@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    КП - Главная страница
+{% endblock %}
+
+{% block head %}
+    <h1>Корпус пересказов</h1>
+{% endblock %}
+
+{% block body %}
+    <div class="content">
+    <h2 style="margin-top: -50px">Поиск контекстов</h2>
+    <form style="background: lightseagreen; color: black; margin-left: 30px; margin-bottom: 40px" action="/" method="POST">
+        <input type="text" name="content" id="content">
+        <input type="submit" value="Найти предложения">
+    </form>
+    <b>Примеры запросов:</b>
+        <p><i>1. поиск - выдача предложений с различными формами слова 'поиск'</i></p>
+        <p><i>2. "поиск" - выдача предложений со словом 'поиск', причем исключительно в этой форме</i></p>
+        <p><i>3. поиск+NOUN - выдача предложений с различными формами слова 'поиск', после которых идет существительное</i></p>
+        <table>
+            <tr>
+                <th>Номер</th>
+                <th>Автор</th>
+                <th>Произведение</th>
+                <th>Предложение</th>
+            </tr>
+            {% for task in tasks %}
+                <tr>
+                    <td>{{ task.number }}</td>
+                    <td> {{ task.author }} </td>
+                    <td>{{ task.book }}</td>
+                    <td>{{ task.content }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
