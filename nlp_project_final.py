@@ -17,7 +17,7 @@ morph = pymorphy2.MorphAnalyzer()
 # In[5]:
 
 
-with open("retellingscorpus/retellings_corpus.json", encoding="utf-8") as f:
+with open("retellingscorpora/retellings_corpus.json", encoding="utf-8") as f:
     corpus = json.load(f)
 
 
